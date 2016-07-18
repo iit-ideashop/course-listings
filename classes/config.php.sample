@@ -1,0 +1,5 @@
+<?php
+$db_name = "course_listings";
+$db_user = "";
+$db_pass = "";
+?>
