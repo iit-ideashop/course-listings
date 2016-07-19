@@ -2,8 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>Interprofessional Projects Program - IIT IPRO</title>
-  <meta http-equiv="Content-Type"
- content="text/html; charset=&lt;!--CHARSET--&gt;">
   <link href="../templates/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -77,7 +75,7 @@ if (isMenu) {
     borSty = "solid";
     itemPad = 2;
 
-    imgSrc = "http://www.iit.edu/menu/tri.gif";
+    imgSrc = "img/tri.gif";
     imgSiz = 10;
 
     separator = 1;
@@ -93,18 +91,12 @@ if (isMenu) {
 }
 //-->
 </script>
-<script language="JavaScript1.2" type="text/javascript">
-         <!--
-         if (isMenu) {
-         document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='http://www.iit.edu/menu/hierArrays1.js' TYPE='text/javascript'><\/SCRIPT>");
-         }
-         //-->
-         </script>
-<script language="JavaScript1.2" type="text/javascript">
+<script type="text/javascript">
 <!--
 
 if (isMenu) {
-         document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='http://www.iit.edu/menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+         document.write("<SCRIPT SRC='js/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+         document.write("<SCRIPT SRC='js/hierArrays1.js' TYPE='text/javascript'><\/SCRIPT>");
          }
 //-->
 </script>
@@ -191,10 +183,10 @@ MM_reloadPage(true);
             <td height="60" width="26"><img
  src="http://www.iit.edu/images/transparent.gif" height="60" width="26"></td>
             <td height="60" width="255"><a href="http://www.iit.edu/"><img
- src="http://www.iit.edu/images/newlogo3.gif" border="0" height="60"
+ src="img/newlogo3.gif" border="0" height="60"
  width="255"></a></td>
             <td height="60" width="111"><img
- src="http://www.iit.edu/images/transparent.gif" height="60" width="111"></td>
+ src=img/transparent.gif" height="60" width="111"></td>
             <td height="60" valign="bottom" width="87">&nbsp;</td>
             <td height="60" valign="bottom" width="87">&nbsp;</td>
 
@@ -202,8 +194,7 @@ MM_reloadPage(true);
             <td height="60" valign="bottom" width="87">&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="8"><img
- src="http://www.iit.edu/images/blackline.gif" height="1" width="740"></td>
+            <td colspan="8"><hr></td>
           </tr>
         </tbody>
       </table>
@@ -222,47 +213,47 @@ MM_reloadPage(true);
                 <tr>
 
 <!-- row 2 --> <td> <a
- href="http://www.iit.edu/prospective/index.html"
- onmouseout="di20('prosepect','http://www.iit.edu/images/prosepect.gif'); popDown('elMenu1');"
- onmouseover="di20('prosepect','http://www.iit.edu/images/prosepect_F2.gif'); popUp('elMenu1', event);">
+ href="https://www.iit.edu/prospective/index.html"
+ onmouseout="di20('prosepect','img/prosepect.gif'); popDown('elMenu1');"
+ onmouseover="di20('prosepect','img/prospect.gif'); popUp('elMenu1', event);">
                   <img alt="Prospective Students" name="prosepect"
- src="http://www.iit.edu/images/prosepect.gif" border="0" height="16"
+ src="img/prosepect.gif" border="0" height="16"
  width="129"> </a> </td>
                   <td rowspan="2"><img name="iitnavbar_r2_c02"
- src="http://www.iit.edu/images/iitnavbar_r2_c02.gif" border="0"
+ src="img/iitnavbar_r2_c02.gif" border="0"
  height="18" width="4"></td>
-                  <td> <a href="http://www.iit.edu/current/index.html"
- onmouseout="di20('current','http://www.iit.edu/images/current.gif'); popDown('elMenu2');"
- onmouseover="di20('current','http://www.iit.edu/images/current_F2.gif'); popUp('elMenu2', event);">
+                  <td> <a href="https://www.iit.edu/current/index.html"
+ onmouseout="di20('current','img/current.gif'); popDown('elMenu2');"
+ onmouseover="di20('current','img/current_F2.gif'); popUp('elMenu2', event);">
                   <img alt="Current Students" name="current"
- src="http://www.iit.edu/images/current.gif" border="0" height="16"
+ src="img/current.gif" border="0" height="16"
  width="110"> </a> </td>
                   <td rowspan="2"><img name="iitnavbar_r2_c04"
- src="http://www.iit.edu/images/iitnavbar_r2_c04.gif" border="0"
+ src="img/iitnavbar_r2_c04.gif" border="0"
  height="18" width="3"></td>
 
-                  <td> <a href="http://www.iit.edu/business/index.html"
- onmouseout="di20('business','http://www.iit.edu/images/business.gif'); popDown('elMenu3');"
- onmouseover="di20('business','http://www.iit.edu/images/business_F2.gif'); popUp('elMenu3', event)">
+                  <td> <a href="https://www.iit.edu/business/index.html"
+ onmouseout="di20('business','img/business.gif'); popDown('elMenu3');"
+ onmouseover="di20('business','img/business_F2.gif'); popUp('elMenu3', event)">
                   <img alt="Business &amp; Industry" name="business"
- src="http://www.iit.edu/images/business.gif" border="0" height="16"
+ src="img/business.gif" border="0" height="16"
  width="125"> </a> </td>
                   <td rowspan="2"><img name="iitnavbar_r2_c06"
- src="http://www.iit.edu/images/iitnavbar_r2_c06.gif" border="0"
+ src="img/iitnavbar_r2_c06.gif" border="0"
  height="18" width="4"></td>
-                  <td> <a href="http://www.iit.edu/staff/index.html"
- onmouseout="di20('faculty','http://www.iit.edu/images/faculty.gif'); popDown('elMenu4');"
- onmouseover="di20('faculty','http://www.iit.edu/images/faculty_F2.gif'); popUp('elMenu4', event);">
+                  <td> <a href="htts://www.iit.edu/staff/index.html"
+ onmouseout="di20('faculty','img/faculty.gif'); popDown('elMenu4');"
+ onmouseover="di20('faculty','img/faculty_F2.gif'); popUp('elMenu4', event);">
                   <img alt="Faculty &amp; Staff" name="faculty"
- src="http://www.iit.edu/images/faculty.gif" border="0" height="16"
+ src="img/faculty.gif" border="0" height="16"
  width="94"> </a> </td>
                   <td rowspan="2"><img name="iitnavbar_r2_c08"
- src="http://www.iit.edu/images/iitnavbar_r2_c08.gif" border="0"
+ src="img/iitnavbar_r2_c08.gif" border="0"
  height="18" width="6"></td>
 
-                  <td> <a href="http://www.iit.edu/alumni/"
- onmouseout="di20('alumni','http://www.iit.edu/images/alumni.gif');"
- onmouseover="di20('alumni','http://www.iit.edu/images/alumni_F2.gif');">
+                  <td> <a href="https://www.iit.edu/alumni/"
+ onmouseout="di20('alumni','img/alumni.gif');"
+ onmouseover="di20('alumni','img/alumni_F2.gif');">
 <!--
 
 
@@ -277,20 +268,20 @@ MM_reloadPage(true);
 
 -->
                   <img alt="Alumni" name="alumni"
- src="http://www.iit.edu/images/alumni.gif" border="0" height="16"
+ src="img/alumni.gif" border="0" height="16"
  width="51"> </a> </td>
                   <td rowspan="2"><img name="iitnavbar_r2_c10"
- src="http://www.iit.edu/images/iitnavbar_r2_c10.gif" border="0"
+ src="img/iitnavbar_r2_c10.gif" border="0"
  height="18" width="8"></td>
-                  <td> <a href="http://www.iit.edu/visitors/index.html"
- onmouseout="di20('visitors','http://www.iit.edu/images/visitors.gif'); popDown('elMenu6');"
- onmouseover="di20('visitors','http://www.iit.edu/images/visitors_F2.gif'); popUp('elMenu6', event);">
+                  <td> <a href="https://www.iit.edu/visitors/index.html"
+ onmouseout="di20('visitors','img/visitors.gif'); popDown('elMenu6');"
+ onmouseover="di20('visitors','img/visitors_F2.gif'); popUp('elMenu6', event);">
                   <img alt="Visitors" name="visitors"
- src="http://www.iit.edu/images/visitors.gif" border="0" height="16"
+ src="img/visitors.gif" border="0" height="16"
  width="57"> </a> </td>
 
                   <td rowspan="2"><img name="iitnavbar_r2_c12"
- src="http://www.iit.edu/images/iitnavbar_r2_c12.gif" border="0"
+ src="img/iitnavbar_r2_c12.gif" border="0"
  height="18" width="3"></td>
                 </tr>
               </tbody>
@@ -304,7 +295,7 @@ MM_reloadPage(true);
     </tr>
     <tr>
       <td><img alt="transparent_image"
- src="http://www.iit.edu/images/transparent.gif" height="27" width="740"></td>
+ src="img//transparent.gif" height="27" width="740"></td>
     </tr>
   </tbody>
 </table>
@@ -385,7 +376,7 @@ $db = new dbConnection();
 ?>
 
 <a name='top'>
-<img src='http://ipro.iit.edu/test_new/images/header.gif'></a><br><br>
+<img src='img/header.png'></a><br><br>
 <form action='searchProjResults.php' method='get'>
 <table width="560" cellspacing="0" cellpadding="0" colspan=2 bgcolor="#FFFFFF"> 
 	<tr bgcolor="#FFFFFF" valign="top"> 
@@ -456,38 +447,37 @@ name="Reset"></td></tr>
       </td>
     </tr>
     <tr>
-      <td><img src="http://www.iit.edu/images/blackline.gif" height="1"
- width="731"></td>
+      <td><hr></td>
 
     </tr>
     <tr>
       <td align="center"> <img
- src="http://www.iit.edu/images/new_footer.gif" usemap="#search"
- border="0" height="28" width="500"><!--<area shape="rect" coords="320,5,375,23" href="http://www.iit.edu/feedback.html" alt="Feedback"  title="Feedback">-->
+ src="img/new_footer.gif" usemap="#search"
+ border="0" height="28" width="500"><!--<area shape="rect" coords="320,5,375,23" href="https://www.iit.edu/feedback.html" alt="Feedback"  title="Feedback">-->
       <script language="Javascript">
 	<!--
 	  document.write('<map name="search">')
 
-	  document.write('<area shape="rect" coords="40,5,140,23" href="http://www.iit.edu/directory/search.html"')
+	  document.write('<area shape="rect" coords="40,5,140,23" href="https://www.iit.edu/directory/search.html"')
   	  document.write('alt="Search Content" title="Search Content">')
-	  document.write('<area shape="rect" coords="150,5,240,23" href="http://www.iit.edu/people/search/"')
+	  document.write('<area shape="rect" coords="150,5,240,23" href="https://www.iit.edu/people/search/"')
   	  document.write('alt="Search People" title="Search People">')
-	  document.write('<area shape="rect" coords="250,5,305,23" href="http://www.iit.edu/sitemap.html"')
+	  document.write('<area shape="rect" coords="250,5,305,23" href="https://www.iit.edu/sitemap.html"')
   	  document.write('alt="Site Index" title="Site Index">')
-	  document.write('<area shape="rect" coords="385,4,450,23" href="http://www.iit.edu/" alt="Home" title="Home">')
+	  document.write('<area shape="rect" coords="385,4,450,23" href="https://www.iit.edu/" alt="Home" title="Home">')
 	  document.write('<area shape="rect" coords="320,5,375,23" href="JavaScript:onClick=feedback()" title="Feedback">')
 	  document.write('</map>')
 	//-->
 	</script>
       <noscript> <map name="search"> <area shape="rect"
-coords="40,5,140,23" href="http://www.iit.edu/directory/search.html"
+coords="40,5,140,23" href="https://www.iit.edu/directory/search.html"
 alt="Search Content" title="Search Content"> <area shape="rect"
-coords="150,5,240,23" href="http://www.iit.edu/people/search/"
+coords="150,5,240,23" href="https://www.iit.edu/people/search/"
 alt="Search People" title="Search People"> <area shape="rect"
-coords="250,5,305,23" href="http://www.iit.edu/sitemap.html" alt="Site
+coords="250,5,305,23" href="https://www.iit.edu/sitemap.html" alt="Site
 Index" title="Site Index"> <area shape="rect" coords="385,4,450,23"
-href="http://www.iit.edu/" alt="Home" title="Home"> <area shape="rect"
-coords="320,5,375,23" href="http://www.iit.edu/nojsfeedback.html"
+href="https://www.iit.edu/" alt="Home" title="Home"> <area shape="rect"
+coords="320,5,375,23" href="https://www.iit.edu/nojsfeedback.html"
 alt="Feedback" title="Feedback"> </map> </noscript>
       </td>
     </tr>
@@ -509,11 +499,3 @@ Technology 3300 South Federal Street, Chicago, IL 60616-3793 Tel 312
 <!--footer end-->
 </body>
 </html>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-2145931-1";
-urchinTracker();
-</script>
-
