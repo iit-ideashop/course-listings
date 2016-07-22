@@ -10,11 +10,11 @@ require_once('globals.php');
 
 require_once("classes/db.php");
 
-$db = new dbConnection();
+$db = dbConnect();
 
-$query = $db->dbQuery("SELECT DISTINCT Year FROM Projects ORDER BY Year");
+$query = $db->query("SELECT DISTINCT Year FROM Projects ORDER BY Year");
 $years = array();
-while ($row = mysql_fetch_row($query)) {
+while ($row = $query->fetch_row()) {
 	$years[] = $row[0];
 }
 $index = count($years) - 1;

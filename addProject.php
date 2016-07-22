@@ -7,76 +7,78 @@ include_once('year_semester.php');
 
 session_start();
 
-$db = new dbConnection();
+$db = dbConnect();
 
 if (!isset($_SESSION['admin']))
-	die ("You are not logged in.");
+die ("You are not logged in.");
 
 if (isset($_POST['isSubmit'])) {
-	foreach($_POST as $key => $val)
-		$_POST[$key] = mysql_real_escape_string(stripslashes($val));
+	foreach($_POST as $key => $val){
+		$_POST['key'] = htmlspecialchars($val);
+	}
 	//$sponsor = str_replace("'", "\'", $_POST['sponsor']);
 	//$description = str_replace("'", "\'", $_POST['description']);
 	//$description = str_replace('"', '\"', $description);
-	$query = $db->dbQuery("INSERT INTO Projects VALUES ('{$_POST['section']}', '{$_POST['term']}', '{$_POST['year']}', '{$_POST['title']}',
-'{$_POST['disciplines']}', '{$_POST['description']}', '{$_POST['sponsor']}', '{$_POST['faculty']}', '{$_POST['datetime']}', '{$_POST['video']}')");
-	if ($query)
+	$query = $db->prepare("INSERT INTO Projects VALUES (?,?,?,?,?,?,?,?,?");
+	$query->bind_param("ssssssssss",$_POST['section'], $_POST['term'], $_POST['year'], $_POST['title'],$_POST['disciplines'], $_POST['description'], $_POST['sponsor'], $_POST['faculty'], $_POST['datetime'], $_POST['video']);
+	$qres = $query->execute();
+	if ($qres)
 		$msg = "<p style=\"color: #00FF00; font-weight: bold\">Project Created</p>";
 	else 
 		$msg = "<p style=\"color: #FF0000; font-weight: bold\">ERROR: Could not create project</p>";
 }
 
-$query = $db->dbQuery("SELECT * FROM Disciplines ORDER BY Disciplines");
+$qres = $db->query("SELECT * FROM Disciplines ORDER BY Disciplines");
 $disciplines = array();
-while ($row = mysql_fetch_row($query))
+while ($row = $qres->fetch_row())
 	$disciplines[] = $row[0];
 
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>IPRO Course Listings</title>
-<script type="text/javascript">
+	?>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>IPRO Course Listings</title>
+	<script type="text/javascript">
 
-function checkentry(form) {
-	if (form.section.value == "" ){
-		alert('Please enter Section');
-		form.section.focus();}
-	else if (form.title.value == ""){
-		alert('Please enter Title');
-		form.title.focus();}	
-	else {
-		if (form.disciplines.value == ""){
-			form.disciplines.value = " ";}
-		if (form.description.value == ""){
-			form.description.value = " ";}
-		form.submit();	
+	function checkentry(form) {
+		if (form.section.value == "" ){
+			alert('Please enter Section');
+			form.section.focus();}
+		else if (form.title.value == ""){
+			alert('Please enter Title');
+			form.title.focus();}	
+		else {
+			if (form.disciplines.value == ""){
+				form.disciplines.value = " ";}
+			if (form.description.value == ""){
+				form.description.value = " ";}
+			form.submit();	
+		}
 	}
-}
 
 var mainform;
 function init() {
-        mainform = document.forms[0];
+	mainform = document.forms[0];
 }
 
 function add_faculty(name, email, phone) {
 
 	var temp = mainform['faculty'].value
 
-	if (mainform['faculty'].value.length > 0) {
-		temp = temp + ", " 
-	}
+		if (mainform['faculty'].value.length > 0) {
+			temp = temp + ", " 
+		}
 	mainform['faculty'].value = temp + name + " (" + email + " or " + phone + ")"
 }
 
 function add_dis() {
 
 	var temp = mainform['disciplines'].value
-	
-	if (mainform['disciplines'].value.length > 0) {
-		temp = temp + ", " 
-	}
+
+		if (mainform['disciplines'].value.length > 0) {
+			temp = temp + ", " 
+		}
 	mainform['disciplines'].value = temp + mainform['select_dis'][mainform['select_dis'].selectedIndex].value
 }
 
@@ -90,19 +92,21 @@ function add_dis() {
 <p><a href="admin.php">Manage Projects</a> | <a href="faculty.php">Manage Faculty</a> | <a href="disciplines.php">Manage Disciplines</a> | <a href="instructions.php">Change Instructions</a></p>
 <?php 
 require_once('globals.php');
- print "$msg"; ?>
-<form action="addProject.php" method="post" name="addForm"><fieldset><legend>Add New Project</legend>
-<table width="75%">
-<tr><td><label for="term">Semester:</label></td><td><select name="term" id="term">
-<?php 
-require_once('globals.php');
+if(isset($msg))
+	print "$msg"; 
+	?>
+	<form action="addProject.php" method="post" name="addForm"><fieldset><legend>Add New Project</legend>
+	<table width="75%">
+	<tr><td><label for="term">Semester:</label></td><td><select name="term" id="term">
+	<?php 
+	require_once('globals.php');
 
-foreach ($terms as $term) {
-if ($term == $currentTerm)
-	print "<option value=\"$term\" selected>$term</option>";
-else
-	print "<option value=\"$term\">$term</option>";
-}
+	foreach ($terms as $term) {
+		if ($term == $currentTerm)
+			print "<option value=\"$term\" selected>$term</option>";
+		else
+			print "<option value=\"$term\">$term</option>";
+	}
 ?>
 
 </select>&nbsp;<select name="year">
@@ -132,15 +136,15 @@ require_once('globals.php');
 
 foreach ($disciplines as $disc)
 	print "<option value=\"$disc\">$disc</option>";
-?>
-</select>&nbsp;Choose to add</td></tr>
-<tr><td></td><td><textarea name="disciplines" cols="70" rows="4"></textarea></td></tr>
-<tr><td valign="top"><label for="description">Description:</label></td><td><textarea name="description" id="description" cols="70" rows="15"></textarea></td></tr>
+	?>
+	</select>&nbsp;Choose to add</td></tr>
+	<tr><td></td><td><textarea name="disciplines" cols="70" rows="4"></textarea></td></tr>
+	<tr><td valign="top"><label for="description">Description:</label></td><td><textarea name="description" id="description" cols="70" rows="15"></textarea></td></tr>
 
-<tr><td colspan="2" style="text-align: center"><input type="button" value="Add Project" name="Submit" onClick="checkentry(this.form);"></td></tr>
-</table>
-<input type="hidden" name="isSubmit" value="true">
-</fieldset></form>
+	<tr><td colspan="2" style="text-align: center"><input type="button" value="Add Project" name="Submit" onClick="checkentry(this.form);"></td></tr>
+	</table>
+	<input type="hidden" name="isSubmit" value="true">
+	</fieldset></form>
 
-</body>
-</html>
+	</body>
+	</html>

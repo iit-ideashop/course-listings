@@ -6,19 +6,25 @@ include_once('classes/db.php');
 
 session_start();
 
-$db = new dbConnection();
+$db = dbConnect();
 
 if (!isset($_SESSION['admin']))
 	die ("You are not logged in.");
 
 if (isset($_POST['submit'])) {
-	$db->dbQuery("DELETE FROM Instructions");
-	$query = $db->dbQuery('INSERT INTO Instructions VALUES ("' . mysql_real_escape_string(stripslashes($_POST['inst'])) . '")');
+	$db->query("DELETE FROM Instructions");
+	$query = $db->prepare('INSERT INTO Instructions VALUES (?)');
+	$query->bind_param("s",$_POST['inst']);
+	if($query->execute()){
 	$msg = "<font color='#00FF00'><b>Instructions changed</b></font><br>";
+	} else {	
+	$msg = "<font color='#FF0000'><b>Error! Instructions NOT changed.</b></font><br>";
+	}
+	$query->close();
 }
 
-$query = $db->dbQuery("SELECT Instructions from Instructions");
-$row = mysql_fetch_row($query);
+$query = $db->query("SELECT Instructions from Instructions");
+$row = $query->fetch_row();
 $curInst = $row[0];
 
 ?>
@@ -34,12 +40,11 @@ $curInst = $row[0];
 <br><br>
 <h5>Registration Instructions</h5>
 <?php 
-require_once('globals.php');
- print "$msg"; ?>
+if(isset($msg)) 
+print "$msg"; ?>
 <p>Add or change the registration instructions that are displayed to visitors.</p>
 <form action='instructions.php' method='post'>
 <textarea name='inst' cols='75' rows='20'><?php 
-require_once('globals.php');
  print "$curInst"; ?></textarea><br>
 <input type='submit' name='submit' value='Submit'>
 </form>

@@ -1,4 +1,4 @@
-<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>Interprofessional Projects Program - IIT IPRO</title>
@@ -379,11 +379,15 @@ require_once('globals.php');
 include_once('classes/db.php');
 include_once('display_year_semester.php');
 
-$db = new dbConnection();
+$db = dbConnect();
 
-$query = $db->dbQuery("SELECT * FROM Projects WHERE Year='$currentYear' AND Semester='$currentTerm' ORDER BY Section");
+$query = $db->prepare("SELECT * FROM Projects WHERE Year=? AND Semester=? ORDER BY Section");
+$query->bind_param("ss",$currentYear,$currentTerm);
+$query->execute();
+$qres = $query->get_result();
+
 $projects = array();
-while ($row = mysql_fetch_array($query))
+while ($row = $qres->fetch_assoc())
 	$projects[] = $row;
 ?>
 
@@ -395,8 +399,8 @@ while ($row = mysql_fetch_array($query))
 		<?php 
 require_once('globals.php');
 
-        $query = $db->dbQuery("SELECT * FROM Instructions");
-        $inst = mysql_fetch_row($query);
+        $query = $db->query("SELECT * FROM Instructions");
+        $inst = $query->fetch_row();
         print "<a name='instructions'></a><p>{$inst[0]}</pZ><br><br>";
 		?>
 		</td></tr>

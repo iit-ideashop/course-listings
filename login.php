@@ -4,12 +4,15 @@ require_once("classes/db.php");
 
 session_start();
 
-$db = new dbConnection();
+$db = dbConnect();
 
 if (isset($_POST['login'])) {
 	if (isset($_POST['username']) && isset($_POST['password'])) {
-		$query = $db->dbQuery("SELECT * FROM Login WHERE Username='{$_POST['username']}' AND Password='{$_POST['password']}'");
-		if ($row = mysql_fetch_row($query)) {
+		$stmt = $db->prepare("SELECT * FROM Login WHERE Username=? AND Password=?");
+		$stmt->bind_param("ss",$_POST['username'],$_POST['password']);
+		$stmt->execute();
+		$res = $stmt->get_result();
+		if ($row = $res->fetch_row()) {
 			$_SESSION['admin'] = true;
 			header("Location: admin.php");
 		}
