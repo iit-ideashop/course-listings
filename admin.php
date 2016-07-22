@@ -80,6 +80,7 @@ function confirmCarry() {
 <div><img src="img/header.png" alt="IPRO"></div>
 <h2>IPRO Course Listings</h2>
 <h5>Content Management System Administration</h5>
+<h5>Logged in as user: <?php print $_SESSION['username']; ?></h5>
 <p><a href="admin.php#manage">Manage Projects</a> | <a href="faculty.php">Manage Faculty</a> | <a href="disciplines.php">Manage Disciplines</a> | <a href="instructions.php">Change Instructions</a> | <a href="logout.php">Log Out</a></p>
 <hr>
 <form action="searchProjects.php" method="get"><fieldset><legend>Search for Projects</legend>
