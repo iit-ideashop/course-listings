@@ -110,7 +110,7 @@ Video: </b></font> <font face='Arial' size='2' color='#000000'><a href='{$proj['
 <!--footer begin-->
 <br>
 <hr>
-<div align="center" class=paddedFooter"><font face="arial" size="1">&copy; 2016</font><font
+<div align="center" class=paddedFooter"><font face="arial" size="1">&copy; <?php echo(date("Y")); ?></font><font
  face="Arial, Helvetica, sans-serif" size="2"> Illinois Institute of
 Technology 3300 South Federal Street, Chicago, IL 60616-3793 Tel 312
 567-3000<br><a href="login.php">Login</a></font></div>
