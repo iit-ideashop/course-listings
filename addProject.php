@@ -19,7 +19,7 @@ if (isset($_POST['isSubmit'])) {
 	//$sponsor = str_replace("'", "\'", $_POST['sponsor']);
 	//$description = str_replace("'", "\'", $_POST['description']);
 	//$description = str_replace('"', '\"', $description);
-	$query = $db->prepare("INSERT INTO Projects VALUES (?,?,?,?,?,?,?,?,?");
+	$query = $db->prepare("INSERT INTO Projects VALUES (?,?,?,?,?,?,?,?,?,?)");
 	$query->bind_param("ssssssssss",$_POST['section'], $_POST['term'], $_POST['year'], $_POST['title'],$_POST['disciplines'], $_POST['description'], $_POST['sponsor'], $_POST['faculty'], $_POST['datetime'], $_POST['video']);
 	$qres = $query->execute();
 	if ($qres)

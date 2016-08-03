@@ -16,7 +16,7 @@ foreach($_GET as $key => $val)
 	$_GET[$key] = htmlspecialchars($val);
 
 
-if ($_GET['section'] != '' && $_GET['term'] != '' && $_GET['year'] != '') {
+if (isset($_GET['section']) && isset($_GET['term']) && isset($_GET['year'])) {
 	$query = $db->prepare("SELECT * FROM Projects WHERE Section=? AND Semester=? AND Year=?");
 	$query->bind_param("sss",$_GET['section'],$_GET['term'],$_GET['year']);
 	$query->execute();
@@ -28,10 +28,11 @@ if ($_GET['section'] != '' && $_GET['term'] != '' && $_GET['year'] != '') {
 
 if (isset($_POST['delete'])) {
 	$query = $db->prepare("DELETE FROM Projects WHERE Section=? AND Semester=? AND Year=?");
-	$query->bind_param("sss",$_GET['section'],$_GET['term'],$_GET['year']);
+	$query->bind_param("sss",$_POST['origSection'],$_POST['origTerm'],$_POST['origYear']);
 	$query->execute();
 	$query->close();
 	header("Location: admin.php");
+	exit;
 }
 
 if (isset($_POST['isSubmit'])) {
